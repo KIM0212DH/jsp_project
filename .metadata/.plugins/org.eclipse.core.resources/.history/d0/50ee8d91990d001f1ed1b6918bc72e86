@@ -1,0 +1,35 @@
+<%@page import="java.util.Enumeration"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>logout</title>
+</head>
+<body>
+
+	<%!String memberId;
+	String memberPw;%>
+	<%
+	memberId = request.getParameter("id");
+	memberPw = request.getParameter("password");
+
+	session.removeAttribute(memberId);
+	session.removeAttribute(memberPw);
+	out.println("로그아웃 되었습니다.");
+	%>
+	<br><br>
+	
+	<%
+	Enumeration enumeration = session.getAttributeNames();
+	while(enumeration.hasMoreElements()){
+		String name = enumeration.nextElement().toString();
+		String value = session.getAttribute(name).toString();
+		out.println("session name: " + name + ", ");
+		out.println("session value: " + value + "<br>");
+	}
+	%>
+	<button type="button" onclick="location.href='login.jsp'">처음으로</button>
+</body>
+</html>

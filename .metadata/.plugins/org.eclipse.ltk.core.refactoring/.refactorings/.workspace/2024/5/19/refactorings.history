@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;HelloWorld/src/main/webapp/jsp_15_2_ex1_exceptionex/printStackTrace.jsp&apos;" deleteContents="false" description="Delete resource &apos;HelloWorld/src/main/webapp/jsp_15_2_ex1_exceptionex/printStackTrace.jsp&apos;" element1="/HelloWorld/src/main/webapp/jsp_15_2_ex1_exceptionex/printStackTrace.jsp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1715220141222"/>
+</session>

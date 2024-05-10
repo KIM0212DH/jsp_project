@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	font-size: 16px;
+	font-family: Consolas, sans-serif;
+}
+
+fieldset {
+	width: 30%;
+}
+
+.fieldset-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+</style>
+</head>
+<body>
+	<section class="fieldset-container">
+		<fieldset>
+			<legend>post ex</legend>
+			<button href="http://localhost:8080/HelloWorld/login.jsp">login.jsp</button>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>init param, context param ex</legend>
+			<button href="http://localhost:8080/HelloWorld/paramex.jsp">paramex.jsp</button>
+			<br> <button href="http://localhost:8080/HelloWorld/paramex2.jsp">paramex2.jsp</button>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>request & response ex</legend>
+			<button href="jsp_11_1_ex1_request/jsp_11_1_ex1_requestParamForm.jsp">jsp_11_1_ex1_requestParamForm.jsp</button>
+			<br> <button
+				href="jsp_11_2_ex1_response/jsp_11_2_ex1_responseForm.jsp">jsp_11_2_ex1_responseForm.jsp</button>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>action tag ex</legend>
+			<button href="jsp_12_2_ex1_actiontagex/forwardMain.jsp">forWardMain.jsp</button>
+			<br> <button href="jsp_12_2_ex1_actiontagex/forwardParam.jsp">forWardParam.jsp</button>
+			<br> <button href="jsp_12_2_ex1_actiontagex/include01.jsp">include01.jsp</button>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend>cookie login logout ex</legend>
+			<button href="jsp_13_2_ex1_cookieex/login.jsp">login.jsp</button>	
+		</fieldset>
+		<br>
+	</section>
+
+</body>
+</html>

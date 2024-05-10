@@ -1,0 +1,40 @@
+<%@page import="java.util.Enumeration"%>
+<%@page import="jakarta.websocket.Session"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>welcome</title>
+</head>
+<body>
+
+	<%
+	String inputId = request.getParameter("id");
+	String inputPw = request.getParameter("password");
+	
+	session.setAttribute("memberId", inputId);
+/* 	session.setAttribute("memberPw", inputPw);
+ */	session.setMaxInactiveInterval(10);
+/* 	session.invalidate(); */
+	out.println("세션 정보 <br>");
+	Enumeration enumeration = session.getAttributeNames();
+	while(enumeration.hasMoreElements()){
+		String name = enumeration.nextElement().toString();
+		String value = session.getAttribute(name).toString();
+		out.println("session name: " + name + ", ");
+		out.println("session value: " + value + "<br>");
+	}
+	
+	out.println((String)session.getAttribute("memberId"));
+	out.println((String)session.getAttribute("memberPw"));
+	%>
+
+	<h2>로그인 성공하였습니다.</h2>
+
+
+	<button type="button"
+		onclick="location.href='logout.jsp?session1=<%="memberId"%>&session2=<%="memberPw"%>'">로그아웃</button>
+</body>
+</html>

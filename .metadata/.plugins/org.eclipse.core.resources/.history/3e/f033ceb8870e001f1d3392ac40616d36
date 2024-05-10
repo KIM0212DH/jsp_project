@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%!
+	String inputOldPassword;
+	String inputNewPassword;
+	String inputNewPasswordCheck;
+	String inputNewPhonenumber;
+	
+	%>
+	
+	
+	<%
+	inputOldPassword = request.getParameter("password");
+	inputNewPassword = request.getParameter("newpassword");
+	inputNewPasswordCheck = request.getParameter("newpasswordcheck");
+	inputNewPhonenumber = request.getParameter("newphonenum");
+	
+	
+	
+	%>
+</body>
+</html>

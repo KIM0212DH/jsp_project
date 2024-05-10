@@ -1,0 +1,6 @@
+package kr.co.jsplec.ex;
+
+public class Student {
+	private String name;
+	
+}

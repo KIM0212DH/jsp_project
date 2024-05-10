@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	* {
+        font-size: 16px;
+        font-family: Consolas, sans-serif;
+      }
+      
+     fieldset {
+     	width:20%;
+     }
+</style>
+</head>
+<body>
+
+	<fieldset>
+	<legend>post ex</legend>
+	<a href="http://localhost:8080/HelloWorld/login.jsp">login.jsp</a>
+	</fieldset>
+	<br>
+	
+	<fieldset>
+	<legend>init param, context param ex</legend>
+	<a href="http://localhost:8080/HelloWorld/paramex.jsp">paramex.jsp</a>
+	<br>
+	<a href="http://localhost:8080/HelloWorld/paramex2.jsp">paramex2.jsp</a>
+	</fieldset>
+	<br>
+	<fieldset>
+	<legend>request & response ex</legend>
+	<a href="jsp_11_1_ex1_request/jsp_11_1_ex1_requestParamForm.jsp">jsp_11_1_ex1_requestParamForm.jsp</a>
+	<br>
+	<a href="jsp_11_2_ex1_response/jsp_11_2_ex1_responseForm.jsp">jsp_11_2_ex1_responseForm.jsp</a>
+	</fieldset>
+	<br>
+	<fieldset>
+	<legend>action tag ex</legend>
+	<a href="jsp_12_2_ex1_actiontagex/forwardMain.jsp">forWardMain.jsp</a>
+	<br>
+	<a href="jsp_12_2_ex1_actiontagex/forwardParam.jsp">forWardParam.jsp</a>
+	<br>
+	<a href="jsp_12_2_ex1_actiontagex/include01.jsp">include01.jsp</a>
+</fieldset>
+
+	
+</body>
+</html>

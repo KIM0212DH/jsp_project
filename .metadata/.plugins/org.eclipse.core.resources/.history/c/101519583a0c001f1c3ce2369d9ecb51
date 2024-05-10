@@ -1,0 +1,78 @@
+package kr.co.jsplec.ex;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.ServletRequestEvent;
+import jakarta.servlet.ServletRequestListener;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSessionEvent;
+import jakarta.servlet.http.HttpSessionListener;
+
+/**
+ * Application Lifecycle Listener implementation class jsp_8_3_ex1_contextlistenerex
+ *
+ */
+//@WebListener
+public class jsp_8_3_ex1_contextlistenerex implements ServletContextListener, ServletRequestListener, HttpSessionListener {
+
+    /**
+     * Default constructor. 
+     */
+    public jsp_8_3_ex1_contextlistenerex() {
+        // TODO Auto-generated constructor stub
+    }
+
+	
+	/**
+     * @see ServletContextListener#contextInitialized(ServletContextEvent)
+     */
+    @Override
+    public void contextInitialized(ServletContextEvent sce)  { 
+         // TODO Auto-generated method stub
+    	ServletContextListener.super.contextInitialized(sce);
+    	System.out.println("contextInitialized");
+    }
+    
+    public void init() {
+    	System.out.println("init");
+    }
+
+    @PostConstruct
+    public void initialize() {
+    	System.out.println("PostConstruct initialize");
+    }
+    @PreDestroy
+    public void destroy() {
+    	System.out.println("PreDestory destroy");
+    }
+
+	/**
+     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
+     */
+    @Override
+    public void contextDestroyed(ServletContextEvent sce)  { 
+         // TODO Auto-generated method stub
+    	ServletContextListener.super.contextDestroyed(sce);
+    	System.out.println("contextDestroyed");
+    	
+    }
+
+	/**
+     * @see ServletRequestListener#requestInitialized(ServletRequestEvent)
+     */
+    public void requestInitialized(ServletRequestEvent sre)  { 
+         // TODO Auto-generated method stub
+    	System.out.println( "requestInitialized: " + sre);
+    }
+
+	/**
+     * @see ServletRequestListener#requestDestroyed(ServletRequestEvent)
+     */
+    public void requestDestroyed(ServletRequestEvent sre)  { 
+    	System.out.println("requestDestroyed: " + sre);
+         // TODO Auto-generated method stub
+    }
+	
+}

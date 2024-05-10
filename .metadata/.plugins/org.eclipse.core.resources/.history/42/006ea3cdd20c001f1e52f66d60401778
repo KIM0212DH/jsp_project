@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/jsp_11_1_ex1_requestObj.jsp" method="post">
+		이름 <input type="text" name="name"> <br>
+		아이디 <input type="text" name="id"> <br>
+		비밀번호 <input type="password" name="password"> <br>
+		취미 <input type="checkbox" name="hobby" value="swim"> swim
+		<input  type="checkbox" name="hobby" value="cook"> cook
+		<input type="checkbox" name="hobby" value="running"> running
+		<input type="checkbox" name="hobby" value="sleeping"> sleeping <br>
+		
+		전공 <input type="radio" name="major" value="kor"> 국어
+		<input type="radio" name="major" value="eng"> 영어
+		<input type="radio" name="major" value="math"> 수학 <br>
+		
+		프로토콜 <select name="protocol">
+			<option value="http">http</option>
+			<option value="ftp" selected="selected">ftp</option>
+			<option value="smtp">smtp</option>
+			<option value="https">https</option>
+		</select><br>
+		
+		<input type="submit" name="submit" value="전송">     
+		<input type="reset" name="reset" value="초기화">
+		
+		
+		
+	
+	</form>
+</body>
+</html>

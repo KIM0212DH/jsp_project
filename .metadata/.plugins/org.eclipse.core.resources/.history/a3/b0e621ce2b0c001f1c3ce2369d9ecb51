@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="/HelloWorld/jsp_8_1_ex1_initparamex" method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" placeholder="아이디 입력"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="비밀번호 입력"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
