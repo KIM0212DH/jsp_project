@@ -84,8 +84,20 @@
     <servlet-name>ModifyOk</servlet-name>
     <servlet-class>kr.co.jsplec.ex.ModifyOk</servlet-class>
   </servlet>
-  <!-- <servlet-mapping>
-    <servlet-name>ModifyOk</servlet-name>
-    <url-pattern>/ModifyOk</url-pattern>
+  <servlet>
+    <description></description>
+    <display-name>frontCon</display-name>
+    <servlet-name>frontCon</servlet-name>
+    <servlet-class>kr.co.jsplec.ex.frontCon</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>jsp_25_3_ex1_commex</display-name>
+    <servlet-name>jsp_25_3_ex1_commex</servlet-name>
+    <servlet-class>kr.co.jsplec.ex.jsp_25_3_ex1_commex</servlet-class>
+  </servlet>
+<!--   <servlet-mapping>
+    <servlet-name>jsp_25_3_ex1_commex</servlet-name>
+    <url-pattern>/jsp_25_3_ex1_commex</url-pattern>
   </servlet-mapping> -->
 </web-app>

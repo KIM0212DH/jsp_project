@@ -10,7 +10,8 @@
 
 	<section>
 		<form action="/HelloWorld/jsp_11_1_ex1_request/jsp_11_1_ex1_requestObj.jsp" method="post">
-			<label for="name">이름</label> <input type="text" name="name" id="name">
+			<label for="name">이름</label> 
+			<input type="text" name="name" id="name">
 			<br> 
 			<label for="id">아이디</label> 
 			<input type="text" name="id" id="id"> <br> 

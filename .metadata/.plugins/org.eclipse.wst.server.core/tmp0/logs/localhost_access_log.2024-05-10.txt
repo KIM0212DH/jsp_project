@@ -427,3 +427,6 @@
 127.0.0.1 - - [10/May/2024:15:21:12 +0900] "GET / HTTP/1.1" 404 808
 0:0:0:0:0:0:0:1 - - [10/May/2024:15:21:12 +0900] "GET /HelloWorld/jsp_21_1_ex1_memberex/login.html HTTP/1.1" 200 675
 0:0:0:0:0:0:0:1 - - [10/May/2024:15:23:58 +0900] "GET /HelloWorld/jsp_21_1_ex1_memberex/main.jsp HTTP/1.1" 200 282
+0:0:0:0:0:0:0:1 - - [10/May/2024:16:01:16 +0900] "GET /HelloWorld/jsp_16_2_ex1_beanex/member.jsp HTTP/1.1" 200 774
+0:0:0:0:0:0:0:1 - - [10/May/2024:16:01:21 +0900] "POST /HelloWorld/jsp_16_2_ex1_beanex/memberProc.jsp HTTP/1.1" 200 212
+0:0:0:0:0:0:0:1 - - [10/May/2024:16:01:22 +0900] "GET /HelloWorld/jsp_16_2_ex1_beanex/memberConfirm.jsp HTTP/1.1" 200 201

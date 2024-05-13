@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exception Handling Example</title>
+</head>
+<body>
+    <%-- 예외 발생을 유도하기 위해 0으로 나누기 --%>
+    <% int result = 10 / 0; %>
+    
+    <%-- 예외를 캐치하여 처리하는 부분 --%>
+    <c:catch var="exception">
+        <p>예외가 발생했습니다. : ${exception}</p>
+    </c:catch>
+    
+    <%-- 예외가 발생하지 않았을 경우에만 실행될 부분 --%>
+    <c:if test="${exception == null}">
+        <p>예외가 발생하지 않았습니다.</p>
+    </c:if>
+</body>
+</html>

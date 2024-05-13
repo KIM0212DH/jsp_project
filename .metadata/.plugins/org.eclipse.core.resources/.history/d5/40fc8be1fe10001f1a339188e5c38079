@@ -1,0 +1,9 @@
+package kr.co.jsplec.ex.command_ex;
+
+public class MemberDAO {
+	private static MemberDAO instance = new MemberDAO();
+
+	public MemberDAO getInstance() {
+		return instance;
+	}
+}

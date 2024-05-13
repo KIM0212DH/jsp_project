@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-	<form action="loginOk.jsp" method="post">
-		<label for="id">ID:</label> <input type="text" id="id" name="id"
-			placeholder="아이디 입력"><br><br>
-		<label for="password">Password:</label> 
-		<input
-			type="password" id="password" name="password" placeholder="비밀번호 입력"><br><br>
-		 
-		<input type="submit" value="로그인">
-	</form>
-	<button id="joinButton">회원가입</button>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="outerStyle.css">
 
-	<script>
-		var button = document.getElementById("joinButton");
-		button.onclick = function() {
-			window.location.href = "join.html";
-		};
-	</script>
+</head>
+<body class="login-body">
+    <div class="container">
+        <h1>Login</h1>
+        <form action="loginOk.jsp" method="post">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" placeholder="Enter your ID"><br><br>
+            <label for="password">Password:</label> 
+            <input type="password" id="password" name="password" placeholder="Enter your password"><br><br>
+            <input type="submit" value="Log In">
+        </form>
+        <button id="joinButton">Join Now</button>
+    </div>
+    <script>
+        var button = document.getElementById("joinButton");
+        button.onclick = function() {
+            window.location.href = "join.html";
+        };
+    </script>
 </body>
 </html>

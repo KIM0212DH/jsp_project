@@ -1,0 +1,80 @@
+package kr.co.jsplec.ex.command_ex;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+import kr.co.jsplec.ex.jsp_weekend.UserDTO;
+
+public class MemberDAO {
+	private static MemberDAO instance = new MemberDAO();
+	private Connection conn = null;
+	private PreparedStatement pstmt = null;
+	private ResultSet rs = null;
+
+	public MemberDAO getInstance() {
+		return instance;
+	}
+
+	// 데이터베이스 연결 메소드
+	private Connection getConnection() throws NamingException, SQLException {
+		Context ctx = new InitialContext();
+		DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/Oracle");
+		return ds.getConnection();
+	}
+
+	// 데이터베이스 연결 해제 메소드
+	private void closeConnection(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public ArrayList<MemberDTO> showUsersInfo() {
+		ArrayList<MemberDTO> ret = new ArrayList<MemberDTO>();
+
+		try {
+			conn = getConnection();
+			String selectUser = "select no_user, id_user, nm_user, nm_passwd, no_mobile, nm_email, st_status, cd_user_type from tb_user order by 1";
+			try {
+				pstmt = conn.prepareStatement(selectUser);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					MemberDTO user = new MemberDTO();
+					user.setNoUser(rs.getString(1));
+					user.setIdUser(rs.getString(2));
+					user.setNmUser(rs.getString(3));
+					user.setNmPaswd(rs.getString(4));
+					user.setNoMobile(rs.getString(5));
+					user.setNmEmail(rs.getString(6));
+					user.setStStatus(rs.getString(7));
+					user.setCdUserType(rs.getString(8));
+					ret.add(user);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeConnection(conn, pstmt, rs);
+		}
+		return ret;
+
+	}
+}

@@ -1,3 +1,5 @@
+<%@page import="kr.co.jsplec.ex.jsp_weekend.UserDAO"%>
+<%@page import="kr.co.jsplec.ex.jsp_weekend.UserDTO"%>
 <%@page import="javax.naming.NamingException"%>
 <%@page import="javax.sql.DataSource"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -16,70 +18,36 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%!Connection conn;
-	ResultSet resultSet;
-
-	String dbUrl = "jdbc:oracle:thin:@(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-seoul-1.oraclecloud.com))(connect_data=(service_name=g56e711c2a2b221_dinkdb_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))";
-	String dbUser = "DA2401";
-	String dbPassword = "Data2401";
+	<%!
+	UserDTO loginUserDTO = new UserDTO();
+	UserDAO userConnection = new UserDAO();
 
 	String inputId;
 	String inputPassword;
 
-	String loginId;
-	String loginPw;
 
-	boolean loginSuccess;%>
+	String loginType;
+	%>
 
 	<%
 	
 	inputId = request.getParameter("id");
 	inputPassword = request.getParameter("password");
-
-	String selectSql = "select id,pw,name,phone1,gender from member where id=\'" + inputId + "\' and " + "pw=\'"
-			+ inputPassword + "\'";
-	conn = null;
-	try {
-		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		PreparedStatement pstmt = conn.prepareStatement(selectSql);
-		ResultSet rs = pstmt.executeQuery();
-		loginSuccess = false;
-
-		while (rs.next() && !loginSuccess) {
-			out.println("-----------------------------<br>");
-			out.println("id: " + rs.getString(1) + "<br>");
-			out.println("pw: " + rs.getString(2) + "<br>");
-			out.println("name: " + rs.getString(3) + "<br>");
-			out.println("phone1: " + rs.getString(4) + "<br>");
-			out.println("gender: " + rs.getString(5) + "<br>");
-			loginId = rs.getString(1);
-			loginPw = rs.getString(2);
-			loginSuccess = true;
-		}
-
-		try {
-			pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-	} catch (ClassNotFoundException e) {
-		System.out.println("Oracle JDBC 드라이버를 찾을 수 없습니다.");
-		e.printStackTrace();
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		if (conn != null) {
-			conn.close();
-		}
-	}
-	out.println("loginSuccess: " + loginSuccess);
-	if (loginSuccess) {
-		session.setAttribute("memberId", loginId);
-		session.setAttribute("memberPw", loginPw);
+	
+	loginUserDTO.setIdUser(inputId);
+	loginUserDTO.setNmPaswd(inputPassword);
+	
+	
+	loginType = userConnection.loginUser(loginUserDTO);
+	loginUserDTO = userConnection.getUserInfo(inputId, inputPassword);
+	if (!loginType.isEmpty() && loginUserDTO.getStStatus().equals("ST01")) {
+		session.setAttribute("memberId", loginUserDTO.getIdUser());
+		session.setAttribute("memberPw", loginUserDTO.getNmPaswd());
 		session.setMaxInactiveInterval(60 * 60);
-		response.sendRedirect("main.jsp");
+		if (loginType.equals("20"))
+			response.sendRedirect("admin/adminMain.jsp");
+		else
+			response.sendRedirect("user/userMain.jsp");
 	} else {
 		response.sendRedirect("login.html");
 	}
